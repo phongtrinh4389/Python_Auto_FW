@@ -1,0 +1,29 @@
+__author__ = 'generated'
+import os
+import inspect
+from FunTest.WebTestFramework import TestFramework
+from FunTest.DBFramework import DBTester
+
+
+def get_path():
+    """Needs to be in file that it is being used to find the directory of"""
+    this_path = os.path.split(inspect.getfile(inspect.currentframe()))[0]
+    return os.path.realpath(os.path.abspath(this_path))
+
+
+class %(name)sTest(TestFramework):
+    """
+        Init the framework for the repository
+        This code is generated at the creation of the repository
+        And is intended to be edited - eg to select the web browser
+        used by default
+        """
+    def __init__(self, browser=None, **kwargs):
+        default_browser = 'Firefox'
+        url = '%(url)s'
+        repo = get_path()
+        db_server = '%(db_server)s'
+        db_tester = DBTester('%(default)s', %(list)s, db_server)
+        super().__init__(url, repo, browser, default_browser, db_tester, **kwargs)
+
+

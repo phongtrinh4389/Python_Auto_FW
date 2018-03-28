@@ -1,0 +1,29 @@
+from DBFramework import TableSchema
+from datetime import datetime
+
+class %(name)s (TableSchema):
+        def __init__(self):
+            transform = {
+                %(transforms)s
+            }
+            table_name = '%(table_name)s'
+
+            # add the columns from the db you are going to use to look up the row here
+            key_db_column_names = []
+            db = None
+            super().__init__(table_name, key_db_column_names, transform, db)
+
+        @staticmethod
+        def is_date_time( row, key):
+            return datetime.strptime( row.data[key.lower()], 'date_format') #Please replace 'date_format' to the datetime format that you want
+
+        @staticmethod
+        def is_boolean( row, key):
+            if row.data[key.lower()] == 'Yes':
+                return True
+            else:
+                return False
+
+        @staticmethod
+        def is_upper( row, key):
+            return row.data[key.lower()].upper()

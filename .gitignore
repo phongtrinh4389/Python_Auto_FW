@@ -1,0 +1,6 @@
+.idea
+*.exe
+target
+output
+*.DS_Store
+/test-output/report.html

@@ -1,0 +1,11 @@
+from HtmlTableMatching import BaseHtmlTableComparison
+
+
+class %(name)s (BaseHtmlTableComparison):
+    def __init__(self):
+        column_heading_selector = '%(column_heading_selector)s'
+        row_selector_list = %(row_selector)s
+        transform = {
+            %(transforms)s
+        }
+        super().__init__(column_heading_selector, row_selector_list, transform)
